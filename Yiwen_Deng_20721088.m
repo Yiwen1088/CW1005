@@ -1,5 +1,5 @@
 % Yiwen Deng
-% Insert email address here
+% ssyyd15@nottingham.edu.cn
 
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
