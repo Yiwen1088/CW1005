@@ -21,8 +21,9 @@ duration=600; % in seconds, set acquisition time
 
 for t=1:duration % set time from first second to 10 minutes
 
-    time(t)=t
-    A3_voltage(t)=readVoltage(a,'A3') % read voltage values every 1 second for 10 minutes
+    time(t)=t; % store time in arrays
+    A3_voltage(t)=readVoltage(a,'A3'); % read voltage values every 1 second for 10 minutes
+                                      % store these voltage values in arrays
     pause(1) % pause for 1 second
 
 end % end of loop over t
@@ -35,13 +36,50 @@ maximum_temperature=max(temperature); % find maximum temperature
 average_temperature=mean(temperature); % calculate average temperature
 
 % c)
-figure(1) % create figute plane
-plot(time,temperature) % 
-xlabel('time (s)') % 
-ylabel('temperature (°C)') % 
-title('Line plot of temperature in for 10 minutes (600 seconds)') % 
+figure(1) % create figute plane 1
+plot(time,temperature) % plot time against temperature
+xlabel('time (s)') % name x axis
+ylabel('temperature (°C)') % name y axis
+title('Line plot of temperature in for 10 minutes (600 seconds)')
+% the function of this figure
+grid on; % add grid (don't need, just make the figure look well)
 
+% d)
+date=sprintf('Data logging initiated - 1/5/2026');
+location=sprintf('\nLocation - Nottingham\n');
+disp(date); % print date when the data was recorded on screen
+disp(location); % print location on screen
 
+n=0; % initialise n to 0 to count
+minute=zeros(1,10); % make array full of 0 for time in minute
+T=zeros(1,10); % make array full of 0 for temperature for each minute
+
+% e)
+file=fopen('capsule_temperature.txt','w'); % open the file for writing
+fprintf(file,date); % write date to the file
+fprintf(file,location); % write location to the file
+
+% d), e)
+while (n>=0)&&(n<600) % start of while loop,
+                      % the following loop will be executed when n>=0 and <600
+
+    n=n+60; % add 60 to n
+    time_new_unit=n/60; % convert unit to minute by divided n by 60
+    minute(time_new_unit)=time_new_unit; % store time values in new unit minute
+    T(time_new_unit)=temperature(time_new_unit); % store temperature values in new unit minute
+    output=sprintf('\n%s      %.0f\n%s %.2f C\n','Minute',minute(time_new_unit),'Temperature',T(time_new_unit));
+    % format temperature values with 2 demical digits for each minute
+    disp(output);
+    % print the temperature values with time on screen
+
+% e)
+    fprintf(file,output); % write capsule temperature with time to the file
+
+end % end of while loop
+
+fclose(file); % close the file
+open('capsule_temperature.txt'); % found 'fopen' couldn't work, 
+                                 % use 'open' can open the file to check
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
