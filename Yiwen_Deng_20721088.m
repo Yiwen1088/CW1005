@@ -88,16 +88,19 @@ open('capsule_temperature.txt'); % found 'fopen' couldn't work,
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % h)
-temp_monitor(temperature)
+% temp_monitor(temperature)
 
 % l)
 doc temp_monitor
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 
-% Insert answers here
+% b)
+% temp_prediction(temperature)
 
+% e)
+doc temp_prediction
 
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
 
-% Insert answers herea
+% 
