@@ -27,7 +27,7 @@ for t=1:duration % set time from first second to 10 minutes
 
     time(t)=t; % store time in arrays
     A3_voltage(t)=readVoltage(a,'A3'); % read voltage values every 1 second for 10 minutes
-                                      % store these voltage values in arrays
+                                       % store these voltage values in arrays
 
     temperature(t)=(A3_voltage(t)-V_0)/T_C % convert voltage values into temperature values
 
