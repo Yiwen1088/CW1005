@@ -25,8 +25,8 @@ V_0=500e-3; % convert unit mV to V, zero-degree voltage
 
 for t=1:duration % set time from first second to 10 minutes
 
-    time(t)=t % store time in arrays
-    A3_voltage(t)=readVoltage(a,'A3') % read voltage values every 1 second for 10 minutes
+    time(t)=t; % store time in arrays
+    A3_voltage(t)=readVoltage(a,'A3'); % read voltage values every 1 second for 10 minutes
                                       % store these voltage values in arrays
 
     temperature(t)=(A3_voltage(t)-V_0)/T_C % convert voltage values into temperature values
@@ -90,6 +90,8 @@ open('capsule_temperature.txt'); % found 'fopen' couldn't work,
 % h)
 temp_monitor(temperature)
 
+% l)
+doc temp_monitor
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 

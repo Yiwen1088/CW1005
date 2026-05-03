@@ -1,6 +1,5 @@
 % Yiwen Deng
 % ssyyd15@nottingham.edu.cn
-
 % l)
 %This is a function to collect temperature values based on the read
 %voltage, and control 3 LEDs of different colours (green, yellow and red)
@@ -18,8 +17,7 @@ T_C=10e-3; % convert unit mV/°C to V/°C, temperature coefficient
 V_0=500e-3; % convert unit mV to V, zero-degree voltage
 
 t=0; % set t (time) to 0
-% t1=0
-% t2=0;
+ 
 while t>=0 % start of while loop
 
     t=t+1; % add 1 to t
@@ -27,7 +25,7 @@ while t>=0 % start of while loop
     A3_voltage(t)=readVoltage(a,'A3'); % read voltage values every 1 second for 10 minutes
                                        % store these voltage values in arrays
 
-    pause_time=1; % initialise pause time
+    pause_time=1; % initialise pause time for 1 second
 
     temperature(t)=(A3_voltage(t)-V_0)/T_C; 
     % convert voltage values into temperature values
@@ -35,7 +33,6 @@ while t>=0 % start of while loop
     if (temperature(t)>=18)&&(temperature(t)<=24)
     % if (temperature >=18 °C) and (temperature <=24 °C) the condition is met,
     % namely the temperature is in range of 18 °C to 24 °C
-
         writeDigitalPin(a,'D10',1)
         % lighten green LED, the long LED log connects to the digital channel 10 of the Arduimo
     else % if temperature not in range 18 °C to 24 °C
@@ -43,7 +40,7 @@ while t>=0 % start of while loop
 
     end % end of if statement
 
-    if temperature(t)>24 % if temperature higher than 24 °C
+    if (temperature(t)>24) % if temperature higher than 24 °C
 
         i=1; % intialise i to 1 
              % thus if temperature >24 °C, it can go to while loop for i>0
@@ -85,10 +82,7 @@ while t>=0 % start of while loop
 
     end % end of if statement
 
-    %pause_time=1-2*t1-2*t2;
     pause(pause_time) % pause for the calculated pause_time based on the condition
-    % t1=0
-    % t2=0;
 
 % i)
     figure(1) % create figute plane 1
