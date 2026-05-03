@@ -1,12 +1,12 @@
 % Yiwen Deng
 % ssyyd15@nottingham.edu.cn
-% l)
-%This is a function to collect temperature values based on the read
-%voltage, and control 3 LEDs of different colours (green, yellow and red)
-%to blink in real-time according to the temperature with a live graph. When
-%the temperature is in the range 18 °C to 24 °C, the green LED will light
-%constantly. The yellow LED will blink while temperature is lower and the
-%red LED will blink while temperature is higher
+% Task 2 l)
+% This is a function to collect temperature values based on the read
+% voltage, and control 3 LEDs of different colours (green, yellow and red)
+% to light or blink in real-time according to the temperature with a live 
+% graph. When the temperature is in the range 18 °C to 24 °C, the green LED
+% will light constantly. The yellow LED will blink while temperature is 
+% lower and the red LED will blink while temperature is above the range
 
 function temp_monitor(temperature)
 
