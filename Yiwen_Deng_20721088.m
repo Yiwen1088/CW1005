@@ -71,7 +71,8 @@ while (n>=0)&&(n<600) % start of while loop,
     time_new_unit=n/60; % convert unit to minute by divided n by 60
     minute(time_new_unit)=time_new_unit; % store time values in new unit minute
     T(time_new_unit)=temperature(time_new_unit); % store temperature values in new unit minute
-    output=sprintf('\n%s      %.0f\n%s %.2f C\n','Minute',minute(time_new_unit),'Temperature',T(time_new_unit));
+    output=sprintf('\n%s      %.0f\n%s %.2f C\n', ...
+        'Minute',minute(time_new_unit),'Temperature',T(time_new_unit));
     % format temperature values with 2 demical digits for each minute
     disp(output);
     % print the temperature values with time on screen
@@ -103,4 +104,31 @@ doc temp_prediction
 
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
 
-% 
+% Challenges: During this project, the breadboard and Arduino with some 
+% other new electronics element components such as thermistor were used 
+% throughout. Learning the connecting method and bringing into practice was
+% the main challenge. Otherwise, linking MATLAB to GitHub and updating 
+% local files were also new elements, which could be considered as other 
+% challenges.
+% Strengths: It could be easy to get temperature data just use these
+% electronics components with MATLAB fundamental coding, the implementation
+% of controlling 3 different colours of LEDs could make the temperature
+% range and changing speed detected. The green LED always represented for a
+% normal and comfort condition for both temperature and changing speed,
+% while red LED represented for higher values and yellow LED represented
+% for lower values than the comfort range. And this project could be used 
+% for both real-time detection and real-time prediction.
+% Limitations: In relative concentrated time at normal location, the actual 
+% real-time temperature usually does not have significant change. To ensure
+% the project could be programming normally, the temperature should be
+% changed manually such as holding the temperature sensor in hand or moving
+% close to a window to make the temperature increase or decrease. However,
+% even without interference, sometimes the real-time temperature displayed 
+% abnormally, the temperature was detected to be constant without any 
+% little change or with significant change such as from approximate 20 °C
+% to 40 °C. After a moment, with same connection and code the temperature
+% was detected to be normal. It is shown that the system is unstable.
+% Suggested future improvements: May use more stable and precise
+% electronics components to improve the stability. The different LEDs light
+% to alert could also combined with sound probably and it is feasible
+% through MATLAB coding.
